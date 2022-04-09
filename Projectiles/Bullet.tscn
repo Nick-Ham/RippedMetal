@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Projectiles/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Projectiles/Tracer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/FX/circle source.png" type="Texture" id=4]
+[ext_resource path="res://Components/Spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Projectiles/Impact.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.0
+
+[node name="Bullet" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 34
+script = ExtResource( 1 )
+bulletSpeed = 2600.0
+maxCollisions = 3
+reflectionAngle = 0.5
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Tracer" parent="." instance=ExtResource( 3 )]
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.972549, 0.745098, 1 )
+energy = 0.25
+
+[node name="Spawner" parent="." instance=ExtResource( 5 )]
+sceneToSpawn = ExtResource( 6 )
+
+[node name="Expiry" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Expiry" to="." method="_on_Expiry_timeout"]

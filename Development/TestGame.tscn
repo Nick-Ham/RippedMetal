@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Components/Spawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Development/TestGame.gd" type="Script" id=2]
+[ext_resource path="res://Levels/TestLevel.tscn" type="PackedScene" id=3]
+
+[node name="Game" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Spawner" parent="." instance=ExtResource( 1 )]
+persistent = true
+sceneToSpawn = ExtResource( 3 )
+
+[node name="Gamestart" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Gamestart" to="." method="_on_Gamestart_timeout"]

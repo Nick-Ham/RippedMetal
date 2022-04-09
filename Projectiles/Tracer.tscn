@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Projectiles/Tracer.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.992157, 1, 0.878431, 0.486275, 1, 0.971375, 0.738281, 1 )
+
+[node name="Tracer" type="Node2D"]
+script = ExtResource( 1 )
+tracerLength = 5.0
+tracerWidth = 3
+
+[node name="Decoupler" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Decoupler"]
+points = PoolVector2Array( 23, -1 )
+default_color = Color( 0.4, 0.501961, 1, 1 )
+gradient = SubResource( 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
