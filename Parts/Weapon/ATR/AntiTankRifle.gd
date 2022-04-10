@@ -7,12 +7,11 @@ onready var sprite = $AnimatedSprite
 onready var terrainRay = $RayCast2D
 
 var canFire = true
-var isFiring = false
 
 func _process(delta):
 	aimToTarget()
 	
-	if isFiring and canFire and !terrainRay.is_colliding():
+	if (isFiring or justFired) and canFire and !terrainRay.is_colliding():
 		fire()
 		canFire = false
 

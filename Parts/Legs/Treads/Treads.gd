@@ -1,4 +1,4 @@
-extends "res://Parts/Legs/Legs.gd"
+extends legs
 
 onready var sprite = $Base
 onready var treadsL = $Base/TreadsL

@@ -1,5 +1,8 @@
 extends controller
 
+export(float) var reactionTime = .5
+
+onready var raycast = $RayCast2D
 var accumulator = 0
 
 func _process(delta):
@@ -11,10 +14,22 @@ func _process(delta):
 		if is_instance_valid(GlobalReference.player):
 			targetGlobalPosition = GlobalReference.player.global_position #owner.global_position + targetOffset
 		
+		raycast.cast_to = to_local(targetGlobalPosition)
+		
+		
 		direction = Vector2(sin(timeScaled + PI/2), sin(timeScaled)) 
 		
-		accumulator += delta
-		if accumulator > 1.0:
-			accumulator -= 1.0
-			#emit_signal("primary_pressed")
 		
+		if hasLineOfSight():
+			accumulator += delta
+		else:
+			accumulator = 0
+		
+		if accumulator >= reactionTime:
+			emit_signal("primary_pressed")
+			emit_signal("primary_released")
+
+
+func hasLineOfSight():
+	return !raycast.is_colliding()
+

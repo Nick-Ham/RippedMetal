@@ -38,6 +38,7 @@ func impact(collision):
 	
 	if is_instance_valid(get_node("DamageProfile")):
 		var profile = get_node("DamageProfile")
+		remove_child(profile)
 		collision.collider.add_child(profile)
 		profile.attemptApplyDamage(collision.collider)
 	

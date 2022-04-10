@@ -13,7 +13,6 @@ func setupLevel():
 func beginLevel():
 	for each in get_children():
 		if each is bot:
-			print(each)
 			each.activate()
 	
 

@@ -58,6 +58,5 @@ func _on_secondary_released():
 
 
 func destroy():
-	print("Destroyed")
 	owner.destroy()
 	

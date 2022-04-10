@@ -7,8 +7,7 @@ export(bool) var randomLoadout = true
 var newBot
 
 func _ready():
-	#sprite.visible = false
-	
+	sprite.visible = false
 	if randomLoadout:
 		spawnRandomBot()
 
@@ -17,7 +16,7 @@ func spawnRandomBot():
 	newBotBlueprint.controller = EquipmentList.aiControllers["testController"]
 	newBot = botConstructor.createBotWithBlueprint(newBotBlueprint)
 	newBot.global_position = self.global_position
-	add_child(newBot)
+	get_parent().call_deferred("add_child", newBot)
 
 func _process(delta):
 	pass

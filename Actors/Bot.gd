@@ -17,10 +17,6 @@ func _ready():
 		print("Bot.gd: Controller not found, bot will not function properly.")
 
 
-func get_type():
-	return "bot"
-
-
 func _process(delta):
 	direction = Vector2()
 	targetGlobalPosition = Vector2()
@@ -38,7 +34,6 @@ func activate():
 		controller.activate()
 
 func destroy():
-	print("Bot Destroyed!")
 	controller.deactivate()
 
 

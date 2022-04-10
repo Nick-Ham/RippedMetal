@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/Controllers/Controller.gd"
 }, {
+"base": "Node2D",
+"class": "legs",
+"language": "GDScript",
+"path": "res://Parts/Legs/Legs.gd"
+}, {
 "base": "Node",
 "class": "level",
 "language": "GDScript",
@@ -56,13 +61,14 @@ _global_script_class_icons={
 "armor": "",
 "bot": "",
 "controller": "",
+"legs": "",
 "level": "",
 "spawner": ""
 }
 
 [application]
 
-config/name="Phantom Wreck V 2"
+config/name="RippedMetal"
 run/main_scene="res://Development/TestGame.tscn"
 config/icon="res://icon.png"
 
