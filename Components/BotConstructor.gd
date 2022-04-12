@@ -1,6 +1,7 @@
 extends Node
 class_name BotConstructor
 
+
 var rng
 export var botScene: PackedScene
 
@@ -29,6 +30,12 @@ func generateRandomBlueprint():
 	return newBlueprint
 
 
+func createWeapon(weaponPath):
+	var weaponScene = load(weaponPath)
+	var weaponInstance = weaponScene.instance()
+	return weaponInstance
+
+
 func createBotWithBlueprint(blueprint):
 	var newBot = botScene.instance()
 	
@@ -49,3 +56,13 @@ func createBotWithBlueprint(blueprint):
 	controllerInstance.owner = newBot
 	
 	return newBot
+
+
+func createPlayer(newPlayerBlueprint):
+	var newPlayer
+	var playerBlueprint = generateRandomBlueprint()
+	playerBlueprint.controller = EquipmentList.playerControllers["game"]
+	newPlayer = createBotWithBlueprint(playerBlueprint)
+	var newWeapon = createWeapon(EquipmentList.weapons["atg"])
+	newPlayer.call_deferred("equipWeapon", newWeapon, armor.SLOT_TYPE.PRIMARY)
+	return newPlayer

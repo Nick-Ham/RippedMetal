@@ -8,20 +8,19 @@ onready var playerSpawn = $PlayerSpawn
 var playerBot
 
 func setupLevel():
-	createPlayer()
+	setupPlayer()
+
+
+func setupPlayer():
+	playerBot = botConstructor.createPlayer(botConstructor.generateRandomBlueprint())
+	add_child(playerBot)
+	playerBot.global_position = playerSpawn.global_position
+	GlobalReference.player = playerBot
+	playerCamera.global_position = playerBot.global_position
+
 
 func beginLevel():
 	for each in get_children():
 		if each is bot:
 			each.activate()
-	
-
-func createPlayer():
-	var playerBlueprint = botConstructor.generateRandomBlueprint()
-	playerBlueprint.controller = EquipmentList.playerControllers["game"]
-	playerBot = botConstructor.createBotWithBlueprint(playerBlueprint)
-	playerBot.global_position = playerSpawn.global_position
-	add_child(playerBot)
-	GlobalReference.player = playerBot
-	
 	

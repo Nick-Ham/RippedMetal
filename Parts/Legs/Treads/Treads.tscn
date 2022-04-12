@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Parts/Legs/Legs.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Parts/Legs/Treads/treads_base.png" type="Texture" id=2]
 [ext_resource path="res://Parts/Legs/Treads/treads_1.png" type="Texture" id=3]
 [ext_resource path="res://Parts/Legs/Treads/treads_2.png" type="Texture" id=4]
 [ext_resource path="res://Parts/Legs/Treads/Treads.gd" type="Script" id=5]
+[ext_resource path="res://Parts/Legs/Treads/treads_trail.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -110,6 +111,21 @@ animations = [ {
 "speed": 30.0
 } ]
 
+[sub_resource type="Gradient" id=25]
+colors = PoolColorArray( 1, 1, 1, 1, 0.836914, 0.836914, 0.836914, 0 )
+
+[sub_resource type="GradientTexture" id=26]
+gradient = SubResource( 25 )
+
+[sub_resource type="ParticlesMaterial" id=27]
+emission_shape = 2
+emission_box_extents = Vector3( 10, 2, 1 )
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+angle = 90.0
+color_ramp = SubResource( 26 )
+
 [node name="Legs" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 speedSoftCap = 5.0
@@ -120,12 +136,39 @@ texture = ExtResource( 2 )
 [node name="TreadsL" type="AnimatedSprite" parent="Base" index="0"]
 position = Vector2( 0, -24 )
 frames = SubResource( 12 )
+frame = 3
 playing = true
 flip_h = true
 
 [node name="TreadsR" type="AnimatedSprite" parent="Base" index="1"]
 position = Vector2( 0, 24 )
 frames = SubResource( 24 )
-frame = 5
+frame = 8
 playing = true
 flip_h = true
+
+[node name="TreadTrailL" type="Particles2D" parent="Base" index="2"]
+visible = false
+position = Vector2( -9, -24 )
+z_index = -1
+amount = 40
+lifetime = 2.0
+explosiveness = 0.4
+randomness = 0.22
+visibility_rect = Rect2( -200, 0, 199.98, 0 )
+local_coords = false
+process_material = SubResource( 27 )
+texture = ExtResource( 6 )
+
+[node name="TreadTrailR" type="Particles2D" parent="Base" index="3"]
+visible = false
+position = Vector2( -9, 24 )
+z_index = -1
+amount = 40
+lifetime = 2.0
+explosiveness = 0.4
+randomness = 0.22
+visibility_rect = Rect2( -200, 0, 199.98, 0 )
+local_coords = false
+process_material = SubResource( 27 )
+texture = ExtResource( 6 )

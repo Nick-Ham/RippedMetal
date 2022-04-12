@@ -16,7 +16,6 @@ func _physics_process(delta):
 		var playerGlobalPosition = GlobalReference.player.global_position
 		targetPosition = lerp(playerGlobalPosition, playerGlobalPosition + mouseDifference, .2)
 		camera.global_position = lerp(camera.global_position, targetPosition, .1)
-	
 
 
 func getScreenSizeBias():

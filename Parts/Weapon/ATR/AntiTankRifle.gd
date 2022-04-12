@@ -3,7 +3,8 @@ extends "res://Parts/Weapon/Weapon.gd"
 onready var timer = $Firespeed
 onready var bulletSpawner = $BulletSpawner
 onready var damageProfileSpawner = $DamageProfileSpawner
-onready var sprite = $AnimatedSprite
+onready var gunSprite = $Gun
+onready var firingConeSprite = $FiringCone
 onready var terrainRay = $RayCast2D
 
 var canFire = true
@@ -27,12 +28,19 @@ func fire_released():
 
 
 func fire():
-	sprite.frame = 0
-	sprite.play("default")
+	gunSprite.frame = 0
+	gunSprite.play("default")
+	firingConeSprite.visible = true
+	firingConeSprite.frame = 0
+	firingConeSprite.play("default")
 	var bullet = genericFire(bulletSpawner, damageProfileSpawner)
 	timer.start()
 
 
 func _on_Timer_timeout():
 	canFire = true
+
+
+func _on_FiringCone_animation_finished():
+	firingConeSprite.visible = false
 

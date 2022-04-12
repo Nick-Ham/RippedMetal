@@ -25,17 +25,20 @@ func _process(delta):
 		direction = controller.direction
 		targetGlobalPosition = controller.targetGlobalPosition
 
+
 func _physics_process(delta):
 	var collision = move_and_collide(velocity)
-	
+	if collision:
+		velocity = collision.remainder.slide(collision.normal)
+		move_and_collide(velocity)
 
 func activate():
 	if is_instance_valid(controller):
 		controller.activate()
 
+
 func destroy():
 	controller.deactivate()
-
 
 
 # Unused for now

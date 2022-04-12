@@ -12,9 +12,6 @@ onready var sockets = $Sockets
 onready var primarySockets = sockets.get_node("PrimarySockets")
 onready var secondarySockets = sockets.get_node("SecondarySockets")
 
-func _ready():
-	equipFromScene()
-	
 
 func _process(delta):
 	rotation = owner.targetGlobalPosition.angle_to_point(global_position)
@@ -24,21 +21,8 @@ func _process(delta):
 		each.targetGlobalPosition = owner.targetGlobalPosition
 
 
-func equipFromScene():
-	for each in primarySockets.get_children():
-		if each.get_child_count() > 0:
-			equipWeapon(each.get_children()[0], SLOT_TYPE.PRIMARY)
-	
+# need to equip weapon somehow?
 
-func equipWeapon(weapon, slotType):
-	if slotType == SLOT_TYPE.PRIMARY:
-		primarySocketedWeapons.append(weapon)
-		weapon.ownerBot = owner
-		weapon.transform.y *= -1
-	if slotType == SLOT_TYPE.SECONDARY:
-		secondarySocketedWeapons.append(weapon)
-		weapon.ownerBot = owner
-	
 
 func _on_primary_pressed():
 	for each in primarySocketedWeapons:
