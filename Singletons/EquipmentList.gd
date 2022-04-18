@@ -5,7 +5,8 @@ var playerControllers = {
 }
 
 var aiControllers = {
-	"testController":"res://Components/Controllers/TestController.tscn"
+	"testController":"res://Components/Controllers/TestController.tscn",
+	"chaseController":"res://Components/Controllers/EnemyControllers/EnemyChaseController.tscn"
 }
 
 var armors = {

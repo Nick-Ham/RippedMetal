@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/Controllers/Controller.gd"
 }, {
+"base": "controller",
+"class": "enemy_base_controller",
+"language": "GDScript",
+"path": "res://Components/Controllers/EnemyControllers/EnemyBaseController.gd"
+}, {
 "base": "Node2D",
 "class": "legs",
 "language": "GDScript",
@@ -66,6 +71,7 @@ _global_script_class_icons={
 "armor": "",
 "bot": "",
 "controller": "",
+"enemy_base_controller": "",
 "legs": "",
 "level": "",
 "screenshake": "",

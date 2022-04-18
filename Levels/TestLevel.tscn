@@ -1,42 +1,186 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actors/MapFlags/BotSpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Development/TerrainBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/road.png" type="Texture" id=4]
 
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 296, 216, 296, 936, 211, 531, 209, 306, 83, 843, -424, 936, -205, 845, -424, 216, 44, 305, 79, 687, 106, 529, -140, 480, -74, 406, 44, 469, -204, 688, -212, 592, 105, 471, -147, 340, -216, 400, -278, 366, -358, 499 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 5, 6 ), PoolIntArray( 7, 0, 3, 8 ), PoolIntArray( 2, 1, 4, 9, 10 ), PoolIntArray( 11, 12, 8, 13, 14, 15 ), PoolIntArray( 14, 13, 16, 10, 9 ), PoolIntArray( 8, 12, 17 ), PoolIntArray( 7, 8, 17 ), PoolIntArray( 7, 17, 18, 19 ), PoolIntArray( 7, 19, 20 ), PoolIntArray( 5, 7, 20 ), PoolIntArray( 14, 6, 5, 20, 15 ) ]
+outlines = [ PoolVector2Array( -424, 216, -424, 936, 296, 936, 296, 216 ), PoolVector2Array( -358, 499, -278, 366, -216, 400, -147, 340, -74, 406, -140, 480, -212, 592 ), PoolVector2Array( 44, 305, 44, 469, 105, 471, 106, 529, 211, 531, 209, 306 ), PoolVector2Array( -204, 688, 79, 687, 83, 843, -205, 845 ) ]
+
 [node name="Level" instance=ExtResource( 1 )]
 
+[node name="PlayerCamera" parent="." index="0"]
+position = Vector2( 256, 256 )
+
 [node name="PlayerSpawn" parent="." index="1"]
-position = Vector2( 16, -435 )
+position = Vector2( 160, 784 )
 
 [node name="Ground" parent="." index="3"]
 position = Vector2( -67, -56 )
 
+[node name="BaseTexture" parent="Ground" index="0"]
+margin_left = -2000.0
+margin_top = -2000.0
+margin_right = 2000.0
+margin_bottom = 2000.0
+
 [node name="Road" type="Sprite" parent="Ground" index="1"]
-position = Vector2( 388, 39 )
+position = Vector2( 67, 0 )
 rotation = 1.5708
 texture = ExtResource( 4 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 2000, 128 )
+region_rect = Rect2( 0, 0, 4000, 128 )
+
+[node name="Road3" type="Sprite" parent="Ground" index="2"]
+position = Vector2( -829, 0 )
+rotation = 1.5708
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 128 )
+
+[node name="Road2" type="Sprite" parent="Ground" index="3"]
+position = Vector2( 3, -200 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 128 )
+
+[node name="Road4" type="Sprite" parent="Ground" index="4"]
+position = Vector2( 3, 704 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 128 )
 
 [node name="TerrainBlocks" type="Node2D" parent="." index="4"]
-position = Vector2( 17, 77 )
+position = Vector2( 273, 333 )
 
 [node name="TerrainBlock" parent="TerrainBlocks" index="0" instance=ExtResource( 3 )]
-position = Vector2( 137, -16 )
+position = Vector2( -273, -205 )
 
 [node name="TerrainBlock2" parent="TerrainBlocks" index="1" instance=ExtResource( 3 )]
-position = Vector2( 169, -419 )
-rotation = 1.15197
+position = Vector2( -145, -205 )
 
-[node name="TerrainBlock4" parent="TerrainBlocks" index="2" instance=ExtResource( 3 )]
-position = Vector2( -183, -526 )
+[node name="TerrainBlock58" parent="TerrainBlocks" index="2" instance=ExtResource( 3 )]
+position = Vector2( -785, 691 )
 
-[node name="TerrainBlock5" parent="TerrainBlocks" index="3" instance=ExtResource( 3 )]
-position = Vector2( -183, -398 )
+[node name="TerrainBlock59" parent="TerrainBlocks" index="3" instance=ExtResource( 3 )]
+position = Vector2( -657, 691 )
 
-[node name="TerrainBlock6" parent="TerrainBlocks" index="4" instance=ExtResource( 3 )]
-position = Vector2( -55, -398 )
+[node name="TerrainBlock60" parent="TerrainBlocks" index="4" instance=ExtResource( 3 )]
+position = Vector2( -529, 691 )
 
-[node name="TerrainBlock7" parent="TerrainBlocks" index="5" instance=ExtResource( 3 )]
-position = Vector2( 73, -398 )
+[node name="TerrainBlock61" parent="TerrainBlocks" index="5" instance=ExtResource( 3 )]
+position = Vector2( -401, 691 )
+
+[node name="TerrainBlock62" parent="TerrainBlocks" index="6" instance=ExtResource( 3 )]
+position = Vector2( -273, 691 )
+
+[node name="TerrainBlock63" parent="TerrainBlocks" index="7" instance=ExtResource( 3 )]
+position = Vector2( -145, 691 )
+
+[node name="TerrainBlock64" parent="TerrainBlocks" index="8" instance=ExtResource( 3 )]
+position = Vector2( -17, 691 )
+
+[node name="TerrainBlock65" parent="TerrainBlocks" index="9" instance=ExtResource( 3 )]
+position = Vector2( 111, 691 )
+
+[node name="TerrainBlock66" parent="TerrainBlocks" index="10" instance=ExtResource( 3 )]
+position = Vector2( 111, 563 )
+
+[node name="TerrainBlock67" parent="TerrainBlocks" index="11" instance=ExtResource( 3 )]
+position = Vector2( 111, 435 )
+
+[node name="TerrainBlock68" parent="TerrainBlocks" index="12" instance=ExtResource( 3 )]
+position = Vector2( 111, 307 )
+
+[node name="TerrainBlock69" parent="TerrainBlocks" index="13" instance=ExtResource( 3 )]
+position = Vector2( 111, 179 )
+
+[node name="TerrainBlock70" parent="TerrainBlocks" index="14" instance=ExtResource( 3 )]
+position = Vector2( 111, 51 )
+
+[node name="TerrainBlock71" parent="TerrainBlocks" index="15" instance=ExtResource( 3 )]
+position = Vector2( 111, -77 )
+
+[node name="TerrainBlock72" parent="TerrainBlocks" index="16" instance=ExtResource( 3 )]
+position = Vector2( 111, -205 )
+
+[node name="TerrainBlock5" parent="TerrainBlocks" index="17" instance=ExtResource( 3 )]
+position = Vector2( -657, -205 )
+
+[node name="TerrainBlock6" parent="TerrainBlocks" index="18" instance=ExtResource( 3 )]
+position = Vector2( -529, -205 )
+
+[node name="TerrainBlock10" parent="TerrainBlocks" index="19" instance=ExtResource( 3 )]
+position = Vector2( -401, -205 )
+
+[node name="TerrainBlock13" parent="TerrainBlocks" index="20" instance=ExtResource( 3 )]
+position = Vector2( -17, -205 )
+
+[node name="TerrainBlock9" parent="TerrainBlocks" index="21" instance=ExtResource( 3 )]
+position = Vector2( -145, 51 )
+
+[node name="TerrainBlock15" parent="TerrainBlocks" index="22" instance=ExtResource( 3 )]
+position = Vector2( -785, -77 )
+
+[node name="TerrainBlock19" parent="TerrainBlocks" index="23" instance=ExtResource( 3 )]
+position = Vector2( -785, -205 )
+
+[node name="TerrainBlock20" parent="TerrainBlocks" index="24" instance=ExtResource( 3 )]
+position = Vector2( -785, 51 )
+
+[node name="TerrainBlock23" parent="TerrainBlocks" index="25" instance=ExtResource( 3 )]
+position = Vector2( -785, 179 )
+
+[node name="TerrainBlock24" parent="TerrainBlocks" index="26" instance=ExtResource( 3 )]
+position = Vector2( -785, 563 )
+
+[node name="TerrainBlock21" parent="TerrainBlocks" index="27" instance=ExtResource( 3 )]
+position = Vector2( -785, 435 )
+
+[node name="TerrainBlock41" parent="TerrainBlocks" index="28" instance=ExtResource( 3 )]
+position = Vector2( -337, 435 )
+
+[node name="TerrainBlock16" parent="TerrainBlocks" index="29" instance=ExtResource( 3 )]
+position = Vector2( -785, 307 )
+
+[node name="TerrainBlock18" parent="TerrainBlocks" index="30" instance=ExtResource( 3 )]
+position = Vector2( -521, 147 )
+rotation = 0.553556
+
+[node name="TerrainBlock22" parent="TerrainBlocks" index="31" instance=ExtResource( 3 )]
+position = Vector2( -417, 75 )
+rotation = 2.36674
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TerrainBlock100" parent="TerrainBlocks" index="32" instance=ExtResource( 3 )]
+position = Vector2( -113, 147 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TerrainBlock102" parent="TerrainBlocks" index="33" instance=ExtResource( 3 )]
+position = Vector2( -241, 403 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TerrainBlock104" parent="TerrainBlocks" index="34" instance=ExtResource( 3 )]
+position = Vector2( -241, 467 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TerrainBlock105" parent="TerrainBlocks" index="35" instance=ExtResource( 3 )]
+position = Vector2( -433, 467 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TerrainBlock106" parent="TerrainBlocks" index="36" instance=ExtResource( 3 )]
+position = Vector2( -433, 403 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
+visible = false
+navpoly = SubResource( 1 )
+
+[node name="BotSpawner2" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( -273, 894 )
+
+[node name="BotSpawner4" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 226, 278 )

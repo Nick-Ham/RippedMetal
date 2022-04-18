@@ -128,7 +128,7 @@ color_ramp = SubResource( 26 )
 
 [node name="Legs" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
-speedSoftCap = 5.0
+acceleration = 20.0
 
 [node name="Base" type="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
@@ -136,14 +136,14 @@ texture = ExtResource( 2 )
 [node name="TreadsL" type="AnimatedSprite" parent="Base" index="0"]
 position = Vector2( 0, -24 )
 frames = SubResource( 12 )
-frame = 3
+frame = 4
 playing = true
 flip_h = true
 
 [node name="TreadsR" type="AnimatedSprite" parent="Base" index="1"]
 position = Vector2( 0, 24 )
 frames = SubResource( 24 )
-frame = 8
+frame = 9
 playing = true
 flip_h = true
 

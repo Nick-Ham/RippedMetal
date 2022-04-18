@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Components/Controllers/EnemyControllers/EnemyBaseController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Components/Controllers/EnemyControllers/EnemyChaseController.gd" type="Script" id=2]
+
+[node name="Controller" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Detector" index="0"]
+visible = true
+
+[node name="NavCalculationTick" type="Timer" parent="." index="1"]
+autostart = true
+
+[node name="Node" type="Node" parent="." index="2"]
+
+[node name="Line2D" type="Line2D" parent="Node" index="0"]
+width = 3.0
+default_color = Color( 1, 0, 0, 1 )
+
+[connection signal="timeout" from="NavCalculationTick" to="." method="_on_NavCalculationTick_timeout"]

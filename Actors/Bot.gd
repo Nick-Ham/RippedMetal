@@ -31,6 +31,7 @@ func _physics_process(delta):
 	if collision:
 		velocity = collision.remainder.slide(collision.normal)
 		move_and_collide(velocity)
+		
 
 func activate():
 	if is_instance_valid(controller):

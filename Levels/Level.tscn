@@ -33,3 +33,5 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Navigation2D" type="Navigation2D" parent="."]

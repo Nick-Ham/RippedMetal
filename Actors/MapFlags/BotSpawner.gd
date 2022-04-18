@@ -13,7 +13,7 @@ func _ready():
 
 func spawnRandomBot():
 	var newBotBlueprint = botConstructor.generateRandomBlueprint()
-	newBotBlueprint.controller = EquipmentList.aiControllers["testController"]
+	newBotBlueprint.controller = EquipmentList.aiControllers["chaseController"]
 	newBot = botConstructor.createBotWithBlueprint(newBotBlueprint)
 	newBot.global_position = self.global_position
 	get_parent().call_deferred("add_child", newBot)

@@ -4,6 +4,7 @@ class_name level
 onready var botConstructor = $BotConstructor
 onready var playerCamera = $PlayerCamera
 onready var playerSpawn = $PlayerSpawn
+onready var navigation = $Navigation2D
 
 var playerBot
 
