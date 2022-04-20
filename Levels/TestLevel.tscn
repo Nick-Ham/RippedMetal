@@ -6,9 +6,9 @@
 [ext_resource path="res://Resources/road.png" type="Texture" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 296, 216, 296, 936, 211, 531, 209, 306, 83, 843, -424, 936, -205, 845, -424, 216, 44, 305, 79, 687, 106, 529, -140, 480, -74, 406, 44, 469, -204, 688, -212, 592, 105, 471, -147, 340, -216, 400, -278, 366, -358, 499 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 5, 6 ), PoolIntArray( 7, 0, 3, 8 ), PoolIntArray( 2, 1, 4, 9, 10 ), PoolIntArray( 11, 12, 8, 13, 14, 15 ), PoolIntArray( 14, 13, 16, 10, 9 ), PoolIntArray( 8, 12, 17 ), PoolIntArray( 7, 8, 17 ), PoolIntArray( 7, 17, 18, 19 ), PoolIntArray( 7, 19, 20 ), PoolIntArray( 5, 7, 20 ), PoolIntArray( 14, 6, 5, 20, 15 ) ]
-outlines = [ PoolVector2Array( -424, 216, -424, 936, 296, 936, 296, 216 ), PoolVector2Array( -358, 499, -278, 366, -216, 400, -147, 340, -74, 406, -140, 480, -212, 592 ), PoolVector2Array( 44, 305, 44, 469, 105, 471, 106, 529, 211, 531, 209, 306 ), PoolVector2Array( -204, 688, 79, 687, 83, 843, -205, 845 ) ]
+vertices = PoolVector2Array( 218, 299, 296, 216, 296, 936, 217, 534, -424, 216, 34, 298, 89, 680, 103, 535, 85, 854, -424, 936, -218, 858, -58, 409, 33, 475, -219, 683, -145, 326, -215, 385, -284, 355, 90, 487, -131, 478, -212, 608, -370, 500 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 0, 5 ), PoolIntArray( 6, 7, 3, 2, 8 ), PoolIntArray( 8, 2, 9, 10 ), PoolIntArray( 11, 5, 12, 13 ), PoolIntArray( 5, 11, 14 ), PoolIntArray( 4, 5, 14 ), PoolIntArray( 4, 14, 15, 16 ), PoolIntArray( 17, 7, 6, 13, 12 ), PoolIntArray( 18, 11, 13, 19 ), PoolIntArray( 4, 16, 20 ), PoolIntArray( 9, 4, 20 ), PoolIntArray( 10, 9, 20, 13 ), PoolIntArray( 13, 20, 19 ) ]
+outlines = [ PoolVector2Array( -424, 216, -424, 936, 296, 936, 296, 216 ), PoolVector2Array( 34, 298, 33, 475, 90, 487, 103, 535, 217, 534, 218, 299 ), PoolVector2Array( -219, 683, 89, 680, 85, 854, -218, 858 ), PoolVector2Array( -370, 500, -284, 355, -215, 385, -145, 326, -58, 409, -131, 478, -212, 608 ) ]
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -176,11 +176,7 @@ position = Vector2( -433, 403 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
-visible = false
 navpoly = SubResource( 1 )
 
 [node name="BotSpawner2" parent="." index="6" instance=ExtResource( 2 )]
-position = Vector2( -273, 894 )
-
-[node name="BotSpawner4" parent="." index="7" instance=ExtResource( 2 )]
-position = Vector2( 226, 278 )
+position = Vector2( -362, 332 )

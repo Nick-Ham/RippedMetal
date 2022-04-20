@@ -6,16 +6,25 @@
 [node name="Controller" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="Detector" index="0"]
-visible = true
-
 [node name="NavCalculationTick" type="Timer" parent="." index="1"]
+wait_time = 0.5
 autostart = true
 
 [node name="Node" type="Node" parent="." index="2"]
 
-[node name="Line2D" type="Line2D" parent="Node" index="0"]
+[node name="NavPathLine" type="Line2D" parent="Node" index="0"]
+visible = false
 width = 3.0
 default_color = Color( 1, 0, 0, 1 )
+
+[node name="CompletedPathLine" type="Line2D" parent="Node" index="1"]
+visible = false
+width = 5.0
+default_color = Color( 0.243137, 1, 0, 1 )
+
+[node name="LineOfSight" type="RayCast2D" parent="." index="3"]
+enabled = true
+cast_to = Vector2( 0, 0 )
+collision_mask = 2
 
 [connection signal="timeout" from="NavCalculationTick" to="." method="_on_NavCalculationTick_timeout"]

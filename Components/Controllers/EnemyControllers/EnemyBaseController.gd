@@ -3,8 +3,10 @@ class_name enemy_base_controller
 
 onready var detector = $Detector
 
+
 var detectedBots = []
 var acquiredTarget = null
+
 
 func onBodyDetected(body):
 	pass

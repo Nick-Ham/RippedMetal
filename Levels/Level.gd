@@ -14,8 +14,8 @@ func setupLevel():
 
 func setupPlayer():
 	playerBot = botConstructor.createPlayer(botConstructor.generateRandomBlueprint())
-	add_child(playerBot)
 	playerBot.global_position = playerSpawn.global_position
+	add_child(playerBot)
 	GlobalReference.player = playerBot
 	playerCamera.global_position = playerBot.global_position
 
